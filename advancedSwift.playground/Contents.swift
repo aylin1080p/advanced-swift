@@ -41,4 +41,24 @@ capitalizeWithGuard(str:"")
 
 // try - catch yapısı
 
+enum Error1:Error {
+    
+case divideByZeroError
+}
+
+func divideFunction (number1:Int, number2:Int)throws -> Int {
+    if number2 == 0{
+        throw Error1.divideByZeroError
+    }
+    return number1 / number2
+    
+}
+
+
+do {
+    let result1 = try divideFunction(number1: 4, number2: 0)
+    print(result1)
+} catch Error1.divideByZeroError {
+    print("divided by zero ")
+}
 
